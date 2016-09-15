@@ -4,15 +4,8 @@
 
 <script>
 try {
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://api.github.com/rate_limit');
-  xhr.send();
-  xhr.onload = function() {
-    document.getElementById('result-text').innerHTML = 'test successful';
-  }
-  xhr.onerror = function() {
-    document.getElementById('result-text').innerHTML = 'test failed';
-  }
+  var ws = new WebSocket('wss://example.com');
+  document.getElementById('result-text').innerHTML = 'test successful';
 } catch (err) {
   document.getElementById('result-text').innerHTML = 'test failed';
   throw err;
