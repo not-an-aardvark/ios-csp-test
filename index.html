@@ -1,0 +1,20 @@
+<meta http-equiv="Content-Security-Policy" content="default-src self; connect-src *; script-src 'unsafe-inline';">
+
+<div id="result-text">Testing...</div>
+
+<script>
+try {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://api.github.com/rate_limit');
+  xhr.send();
+  xhr.onload = function() {
+    document.getElementById('result-text').innerHTML = 'test successful';
+  }
+  xhr.onerror = function() {
+    document.getElementById('result-text').innerHTML = 'test failed';
+  }
+} catch (err) {
+  document.getElementById('result-text').innerHTML = 'test failed';
+  throw err;
+}
+</script>
